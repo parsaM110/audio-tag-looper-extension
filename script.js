@@ -25,7 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
       chrome.scripting.executeScript({
         target: { tabId: tabs[0].id },
         function: (state) => {
-          console.log(state ? "Active" : "Inactive");
+          document.querySelectorAll('audio').forEach(audio => {
+            if (state) {
+              audio.setAttribute('loop', '');
+            } else {
+              audio.removeAttribute('loop');
+            }
+          });
+          console.log(state ? "Looping Enabled" : "Looping Disabled");
         },
         args: [newState]
       });
