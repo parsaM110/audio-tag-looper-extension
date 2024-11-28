@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name": "Audio Tag Looper",
+    "version": "1.0",
+    "description": "Adds loop functionality to all audio tags on a webpage.",
+    "author": "parsa momeni",
+    "host_permissions": ["<all_urls>"],
+    "action": {
+      "default_popup": "index.html",
+      "default_title": "Audio Tag Looper"
+    }
+  }
+  
