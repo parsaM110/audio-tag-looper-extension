@@ -1,34 +1,34 @@
-let isActive = false;
-
-document.getElementById("enable-loop").addEventListener("click", () => {
-
+document.addEventListener('DOMContentLoaded', () => {
   const button = document.getElementById("enable-loop");
   
-  isActive = !isActive;
+  const savedState = localStorage.getItem('buttonState') === 'true';
   
-  if (isActive) {
+  if (savedState) {
     button.style.backgroundColor = "red";
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        chrome.scripting.executeScript({
-          target: { tabId: tabs[0].id },
-          function: () => {
-            console.log("Logged in active tab!");
-          }
-        });
-      });
   } else {
     button.style.backgroundColor = "gray";
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        chrome.scripting.executeScript({
-          target: { tabId: tabs[0].id },
-          function: () => {
-            console.log("Logged in unactive tab!");
-          }
-        });
-      });
   }
-});
 
-
-
+  button.addEventListener("click", () => {
+    const currentState = localStorage.getItem('buttonState') === 'true';
+    const newState = !currentState;
     
+    localStorage.setItem('buttonState', newState);
+    
+    if (newState) {
+      button.style.backgroundColor = "red";
+    } else {
+      button.style.backgroundColor = "gray";
+    }
+
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      chrome.scripting.executeScript({
+        target: { tabId: tabs[0].id },
+        function: (state) => {
+          console.log(state ? "Active" : "Inactive");
+        },
+        args: [newState]
+      });
+    });
+  });
+});
