@@ -15,13 +15,13 @@
   },
   "action": {
     "default_icon": {
-      "128": "/data/icons/128.png",
-      "16": "/data/icons/16.png",
-      "256": "/data/icons/256.png",
-      "32": "/data/icons/32.png",
-      "48": "/data/icons/48.png",
-      "512": "/data/icons/512.png",
-      "64": "/data/icons/64.png"
+      "128": "/data/icons/disabled/128.png",
+      "16": "/data/icons/disabled/16.png",
+      "256": "/data/icons/disabled/256.png",
+      "32": "/data/icons/disabled/32.png",
+      "48": "/data/icons/disabled/48.png",
+      "512": "/data/icons/disabled/512.png",
+      "64": "/data/icons/disabled/64.png"
     }
   }
   }
