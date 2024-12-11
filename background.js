@@ -4,17 +4,19 @@ chrome.runtime.onInstalled.addListener(() => {
   });
   
   // Listener for toolbar icon click
-  // chrome.action.onClicked.addListener((tab) => { 
-  //   chrome.action.setIcon({ path: {
-  //      "16": "icon-red.png",
-  //      "32": "icon-red.png",
-  //      "48": "icon-red.png" 
-  //   } });
-  // });
-
-  chrome.action.onClicked.addListener((tab) => {
-    chrome.tabs.create({url: "https://www.youtube.com"});
+  chrome.action.onClicked.addListener((tab) => { 
+    chrome.action.setIcon({ 
+      path: {
+        '16': '/data/icons'  + '/disabled' + '/16.png',
+        '32': '/data/icons'  + '/disabled' + '/32.png',
+        '48': '/data/icons' +  '/disabled' + '/48.png'
+      }
   });
+  });
+
+  // chrome.action.onClicked.addListener((tab) => {
+  //   chrome.tabs.create({url: "https://www.youtube.com"});
+  // });
   
   // Function to toggle loop attribute on audio elements
   function toggleAudioLoop(state) {

@@ -15,9 +15,13 @@
   },
   "action": {
     "default_icon": {
-      "16": "icon-gray.png",
-      "48": "icon-gray.png",
-      "128": "icon-gray.png"
+      "128": "/data/icons/128.png",
+      "16": "/data/icons/16.png",
+      "256": "/data/icons/256.png",
+      "32": "/data/icons/32.png",
+      "48": "/data/icons/48.png",
+      "512": "/data/icons/512.png",
+      "64": "/data/icons/64.png"
     }
   }
   }
