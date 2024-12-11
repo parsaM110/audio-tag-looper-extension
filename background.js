@@ -4,25 +4,16 @@ chrome.runtime.onInstalled.addListener(() => {
   });
   
   // Listener for toolbar icon click
+  // chrome.action.onClicked.addListener((tab) => { 
+  //   chrome.action.setIcon({ path: {
+  //      "16": "icon-red.png",
+  //      "32": "icon-red.png",
+  //      "48": "icon-red.png" 
+  //   } });
+  // });
+
   chrome.action.onClicked.addListener((tab) => {
-    chrome.storage.sync.get('loopState', (data) => {
-      const newState = !data.loopState;
-  
-      // Update the loop state in storage
-      chrome.storage.sync.set({ loopState: newState }, () => {
-        // Update the toolbar icon based on the new state
-        chrome.action.setIcon({
-          path: newState ? './icon-red.png' : './icon-gray.png',
-        });
-  
-        // Inject script to toggle the loop attribute on all audio tags
-        chrome.scripting.executeScript({
-          target: { tabId: tab.id },
-          func: toggleAudioLoop,
-          args: [newState],
-        }).catch((error) => console.error('Script execution error:', error));
-      });
-    });
+    chrome.tabs.create({url: "https://www.youtube.com"});
   });
   
   // Function to toggle loop attribute on audio elements
