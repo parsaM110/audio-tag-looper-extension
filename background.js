@@ -10,11 +10,11 @@ chrome.runtime.onInstalled.addListener(() => {
 
       chrome.action.setIcon({ 
         path: {
-          '16': '/data/icons'  + '/disabled' + '/16.png',
-          '32': '/data/icons'  + '/disabled' + '/32.png',
-          '48': '/data/icons' +  '/disabled' + '/48.png'
+          '16': '/data/icons'  + (newState ? '' : '/disabled')  + '/16.png',
+          '32': '/data/icons'  + (newState ? '' : '/disabled') + '/32.png',
+          '48': '/data/icons' +  (newState ? '' : '/disabled') + '/48.png'
         }
-      });
+      })
   
       // Update the loop state in storage
       chrome.storage.sync.set({ loopState: newState }, () => {
